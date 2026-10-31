@@ -1,0 +1,28 @@
+isAdmin: false
+name: Ivan
+age: 30
+position: Developer
+skills:
+  - name: Programming
+    level: 5
+    description: |
+      Knowledge of
+      programming language
+  - name: Testing
+    level: 3
+    description: |
+      Knowledge of
+      software testing
+address:
+  country: Russia
+  city: Moscow
+  street: Lenina
+  house: 1
+  flat: 15
+pets:
+  - name: Murka
+    breed: British Shorthair
+    can_meow: true
+  - name: Baron
+    breed: Collie
+    can_meow: false
