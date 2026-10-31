@@ -21,8 +21,8 @@ address:
   flat: 15
 pets:
   - name: Murka
-    type: cat
+    breed: British Shorthair
     can_meow: true
   - name: Baron
-    type: dog
+    breed: Collie
     can_meow: false
