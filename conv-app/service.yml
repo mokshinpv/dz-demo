@@ -3,10 +3,9 @@ kind: Service
 metadata:
   name: conv-app-service
 spec:
-  type: NodePort
+  type: ClusterIP
   selector:
     component: frontend
   ports:
-    - port: 3829
-      targetPort: 80
-      nodePort: 30123
+    - port: 80
+      protocol: TCP
