@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: conv-app-service
+spec:
+  type: NodePort
+  selector:
+    component: frontend
+  ports:
+    - port: 3829
+      targetPort: 80
+      nodePort: 30123
