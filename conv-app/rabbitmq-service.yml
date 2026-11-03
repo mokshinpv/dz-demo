@@ -7,5 +7,9 @@ spec:
   selector:
     component: rabbitmq
   ports:
-    - port: 5432
+    - name: rabbitmq
+      port: 5672
+      protocol: TCP
+    - name: management
+      port: 15672
       protocol: TCP

@@ -15,9 +15,10 @@ spec:
     spec:
       containers:
         - name: rabbitmq
-          image: rabbitmq:4.4
+          image: rabbitmq-management:4.4
           ports:
             - containerPort: 5672
+            - containerPort: 15672
           env:
             - name: SEED_USERNAME
               value: rabbitmq
@@ -25,10 +26,10 @@ spec:
               value: bddfg2dff234a
           resources:
             requests:
-              memory: "300Mi"
+              memory: "512Mi"
               cpu: "200m"
             limits:
-              memory: "300Mi"
+              memory: "512Mi"
               cpu: "200m"
           volumeMounts:
             - name: rabbitmq-data
