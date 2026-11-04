@@ -21,9 +21,15 @@ spec:
             - containerPort: 15672
           env:
             - name: SEED_USERNAME
-              value: rabbitmq
+              valueFrom:
+                secretKeyRef:
+                  name: rabbitmq-secret
+                  key: AMQP_USER
             - name: SEED_USER_PASSWORD
-              value: bddfg2dff234a
+              valueFrom:
+                secretKeyRef:
+                  name: rabbitmq-secret
+                  key: AMQP_PASSWORD
           resources:
             requests:
               memory: "512Mi"

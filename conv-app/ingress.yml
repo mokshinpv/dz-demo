@@ -15,3 +15,10 @@ spec:
                 name: conv-app-service
                 port:
                   number: 80
+          - pathType: Prefix
+            path: "/api"
+            backend:
+              service:
+                name: conv-api-service
+                port:
+                  number: 3000
