@@ -22,3 +22,10 @@ spec:
                 name: conv-api-service
                 port:
                   number: 3000
+          - pathType: Prefix
+            path: "/uploads"
+            backend:
+              service:
+                name: conv-api-service
+                port:
+                  number: 3000
