@@ -16,6 +16,8 @@ spec:
       containers:
         - name: converter
           image: antonlarichev/conv-service:1.0
+          ports:
+            - containerPort: 3000
           env:
             - name: AMQP_USER
               valueFrom:
