@@ -3,4 +3,4 @@ kind: ConfigMap
 metadata:
   name: conv-app-config
 data:
-  domain: conv.test
+  domain: http://conv.test
