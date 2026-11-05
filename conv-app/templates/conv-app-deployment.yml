@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.app.name }}-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: {{ .Values.app.component }}
+  template:
+    metadata:
+      name: {{ .Values.app.name }}
+      labels:
+        component: {{ .Values.app.component }}
+    spec:
+      containers:
+        - name: {{ .Values.app.name }}
+          image: "{{ .Values.app.image.name }}:{{ .Values.app.image.version }}"
+          ports:
+            - containerPort: {{ .Values.app.port }}
+          env:
+            - name: VITE_DOMAIN
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ .Values.app.name }}-config
+                  key: domain
+          resources:
+            requests: {{ .Values.app.limits | toYaml | nindent 14 }}
+            limits: {{ .Values.app.limits | toYaml | nindent 14 }}              
