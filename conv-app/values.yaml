@@ -1,0 +1,11 @@
+app:
+  name: conv-app
+  component: frontend
+  port: 80
+  domain: conv.test
+  image:
+    name: antonlarichev/conv-app
+    version: "1.2"
+  limits:
+    memory: "400Mi"
+    cpu: "200m"

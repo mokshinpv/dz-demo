@@ -1,0 +1,31 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ .Values.app.name }}-ingress
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: {{ .Values.app.domain }}
+      http:
+        paths:
+          - pathType: Prefix
+            path: "/"
+            backend:
+              service:
+                name: {{ .Values.app.name }}-service
+                port:
+                  number: {{ .Values.app.port }}
+          - pathType: Prefix
+            path: "/api"
+            backend:
+              service:
+                name: conv-api-service
+                port:
+                  number: 3000
+          - pathType: Prefix
+            path: "/uploads"
+            backend:
+              service:
+                name: conv-api-service
+                port:
+                  number: 3000
