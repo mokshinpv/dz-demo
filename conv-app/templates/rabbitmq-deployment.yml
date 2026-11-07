@@ -6,12 +6,12 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      component: rabbitmq
+      component: {{ .Values.rabbitmq.component }}
   template:
     metadata:
       name: {{ .Values.rabbitmq.name }}
       labels:
-        component: rabbitmq
+        component: {{ .Values.rabbitmq.component }}
     spec:
       containers:
         - name: {{ .Values.rabbitmq.name }}
@@ -23,12 +23,12 @@ spec:
             - name: RABBITMQ_DEFAULT_USER
               valueFrom:
                 secretKeyRef:
-                  name: rabbitmq-secret
+                  name: {{ .Values.rabbitmq.name }}-secret
                   key: AMQP_USER
             - name: RABBITMQ_DEFAULT_PASS
               valueFrom:
                 secretKeyRef:
-                  name: rabbitmq-secret
+                  name: {{ .Values.rabbitmq.name }}-secret
                   key: AMQP_PASSWORD
           resources:
             requests: {{ .Values.rabbitmq.limits | toYaml | nindent 14 }}
